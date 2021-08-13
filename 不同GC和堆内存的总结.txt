@@ -1,0 +1,12 @@
+作业4：
+使用 GCLogAnalysis.java 分别设置串行 / 并行 /CMS/G1 策略时看gc情况，
+
+当设置相同堆内存如-Xmx1g，-Xms1g下 ParallelGC 比SerialGC gc执行时间短，生成对象多；
+ConcMarkSweepGC用于回收老年代，执行后老年代空间占用率比前两者gc会减少；
+G1GC执行过程中发生younggc的频率比前面三个gc策略的都要高；
+
+当设置相同gc策略，不同堆内存时，
+如使用CMS和G1GC策略时，当增加堆内存到-Xmx4g -Xms4g时，可以发现只发生younggc，相比1g内存时gc频率也变少了；
+使用CMS和G1GC策略时，当减少堆内存到-Xmx256m -Xms256m时，会出现多次fullgc；
+
+
