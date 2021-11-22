@@ -1,1 +1,8 @@
+NIO是指Non-blocking I/O，是一种同步非阻塞IO，主要有三大核心部分：Channel(通道)，Buffer(缓冲区), Selector（多路复用器);
+与传统IO相比，而NIO基于Channel和Buffer(缓冲区)进行操作，NIO是面向缓冲区的；
+而Netty框架就是基于NIO来实现的，基于 I/O 多路复用模型,
+Netty 的 IO 线程 NioEventLoop 聚合了多路复用器 Selector，当线程从某客户端 Socket 通道进行读写数据时，若没有数据可用时，该线程可以进行其他任务。
+线程通常将非阻塞 IO 的空闲时间用于在其他通道上执行 IO 操作,由于读写操作都是非阻塞的，这就可以充分提升 IO 线程的运行效率，避免由于频繁 I/O 阻塞导致的线程挂起；
+这从根本上解决了传统同步阻塞 I/O 一连接一线程模型；
+
 
